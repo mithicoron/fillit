@@ -23,9 +23,7 @@ int         tet_A(char **map, char a, int i, int c)
 	if (i + c + 1 >= len -1)
 		z = -1;
     if (z != -1 && (a == '.' || (*map)[i + 1] == '.'))
-    {
         if (z != -1 && (a == '.' || (*map)[i + c] == '.'))
-        {
             if (z != -1 && (a == '.' || (*map)[i + c + 1] == '.'))
             {
                 (*map)[i] = a;
@@ -34,8 +32,6 @@ int         tet_A(char **map, char a, int i, int c)
                 (*map)[i + c + 1] = a;
                 z = 1;
             }
-        }
-    }
     return (z);
 }
 
@@ -49,9 +45,7 @@ int         tet_B(char **map, char a, int i, int c)
 	if (i + 3 >= len -1)
 		z = -1;
     if (z != -1 && (a == '.' || (*map)[i + 1] == '.'))
-    {
         if (z != -1 && (a == '.' || (*map)[i + 2] == '.'))
-        {
             if (z != -1 && (a == '.' || (*map)[i + 3] == '.'))
             {
                 (*map)[i] = a;
@@ -60,8 +54,6 @@ int         tet_B(char **map, char a, int i, int c)
                 (*map)[i + 3] = a;
                 z = 1;
             }
-        }
-    }
     return (z);
 }
 
@@ -280,18 +272,18 @@ int         tet_K(char **map, char a, int i, int c)
 
     z = 0;
 	len = ft_strlen(*map);
-	if (i + c + 1 >= len -1)
+	if (i + c * 2 >= len -1)
 		z = -1;
     if (z != -1 && (a == '.' || (*map)[i + 1] == '.'))
     {
         if (z != -1 && (a == '.' || (*map)[i + c] == '.'))
         {
-            if (z != -1 && (a == '.' || (*map)[i + (c * 2)] == '.'))
+            if (z != -1 && (a == '.' || (*map)[i + c * 2] == '.'))
             {
                 (*map)[i] = a;
                 (*map)[i + 1] = a;
                 (*map)[i + c] = a;
-                (*map)[i + (c * 2)] = a;
+                (*map)[i + c * 2] = a;
                 z = 1;
             }
         }

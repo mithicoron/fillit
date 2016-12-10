@@ -10,7 +10,25 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+int			tet_A(char **s, char a, int i, int w);
+int			tet_B(char **s, char a, int i, int w);
+int			tet_C(char **s, char a, int i, int w);
+int			tet_D(char **s, char a, int i, int w);
+int			tet_E(char **s, char a, int i, int w);
+int			tet_F(char **s, char a, int i, int w);
+int			tet_G(char **s, char a, int i, int w);
+int			tet_H(char **s, char a, int i, int w);
+int			tet_I(char **s, char a, int i, int w);
+int			tet_J(char **s, char a, int i, int w);
+int			tet_K(char **s, char a, int i, int w);
+int			tet_L(char **s, char a, int i, int w);
+int			tet_M(char **s, char a, int i, int w);
+int			tet_N(char **s, char a, int i, int w);
+int			tet_O(char **s, char a, int i, int w);
+int			tet_P(char **s, char a, int i, int w);
+int			tet_Q(char **s, char a, int i, int w);
+int			tet_R(char **s, char a, int i, int w);
+int			tet_S(char **s, char a, int i, int w);
 
 int			ft_atoj(char **map, char **str, char w, int i, int c)
 {
