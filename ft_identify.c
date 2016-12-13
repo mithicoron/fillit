@@ -31,6 +31,9 @@ int			tet_P(char **s, char a, int i, int w);
 int			tet_Q(char **s, char a, int i, int w);
 int			tet_R(char **s, char a, int i, int w);
 int			tet_S(char **s, char a, int i, int w);
+void		piece_compare(char **bufftrim, char **stor);
+char		*ft_piecetrim(char **bufftrim, char **buff, char **stor);
+char		*ft_readpieces(int argc, char **argv);
 
 int			j;
 
@@ -149,38 +152,42 @@ void		ft_placetet(char **map, char **str, int i, int c, int no_sol)
 	w = 'A' + j;
 	len = ft_strlen(*map);
 	if ((*map)[i] == '.')
+	{
+		printf("i = '%d'. a = '%d'...\n", i, a);
 		a = ft_tetcheck(map, str, w, i, c);
+	}
 	if (a == 1)
 	{
+		ft_putstr(*map);
 		j++;
-		no_sol = 0;
 		i = 0;
+		no_sol = 0;
 	}
 	i++;
 	if (no_sol == 0 && a == -1)
-	{
-		i = 0;
-		no_sol = 1;
-		ft_placetet(map, str, i, c, no_sol);
-	}
+		{
+			i = 0;
+			printf("i is 0...\n");
+			no_sol = 1;
+		}
 	else if (no_sol == 1 && a == -1 && j > 0)
 	{
 		j--;
 		w = 'A' + j;
 		i = 0;
+		printf("i is 0...\n");
 		while ((*map)[i] != w)
 			i++;
 		a = ft_tetcheck(map, str, '.', i, c);
 		i++;
-		ft_placetet(map, str, i, c, no_sol);
 	}
 	else if (no_sol == 1 && a == -1 && j == 0)
 	{
 		c++;
 	    *map = ft_remake(map, c);
 		i = 0;
+		printf("i is 0...\n");
 		j = 0;
-		ft_placetet(map, str, i, c, no_sol);
 	}
 	if ((*str)[j] != '\0')
 		ft_placetet(map, str, i, c, no_sol);
@@ -199,18 +206,19 @@ int			sqrt_strnum(char *str)
 	return (guess);
 }
 
-int			main(void)
+int			main(int argc, char **argv)
 {
 	int		i;
 	char	*str;
 	char	*map;
 	int		c;
+	char	*pieces;
 	int		no_sol;
 
 	i = 0;
 	j = 0;
 	no_sol = 0;
-	str = "EOHB\0";
+	str = ft_readpieces(argc, argv);
 	c = sqrt_strnum(str);
 	map = ft_strnew((c * (c - 1) + 1));
 	ft_mapfil(&map, c);
